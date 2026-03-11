@@ -22,7 +22,7 @@ public class Main {
         int t = sc2.nextInt();
         if (t > -5) {
             System.out.println("Warm\n");
-        } else if (t <= -5 & t > -20) {
+        } else if (t > -20) {
             System.out.println("Normal\n");
         } else {
             System.out.println("Cold\n");
