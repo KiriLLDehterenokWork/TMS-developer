@@ -4,7 +4,7 @@
 
 import java.util.Scanner;
 
-public class Main {
+public class HW6 {
     public static void main(String[] args) {
         /*
         Задача 1:
