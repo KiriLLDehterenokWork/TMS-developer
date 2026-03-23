@@ -8,91 +8,93 @@ public class Main {
     public static void main(String[] args) {
         /*
         Задача 1:
-Напишите программу, которая будет принимать на вход число из консоли и на выход
-будет выводить сообщение четное число или нет. Для определения четности числа
-используйте операцию получения остатка от деления (операция выглядит так: '% 2').
+Создать класс CreditCard c полями номер счета, текущая сумма на счету. Добавьте
+метод, который позволяет начислять сумму на кредитную карточку. Добавьте метод,
+который позволяет снимать с карточки некоторую сумму. Добавьте метод, который
+выводит текущую информацию о карточке. Напишите программу, которая создает три
+объекта класса CreditCard у которых заданы номер счета и начальная сумма.
+Тестовый сценарий для проверки: Положите деньги на первые две карточки и снимите с
+третьей. Выведите на экран текущее состояние всех трех карточек.
          */
-        System.out.println("Задание 1");
+
         Scanner sc1 = new Scanner(System.in);
-        System.out.println("Введите ваше число: ");
-        int x = sc1.nextInt();
-        if (x % 2 == 0) {
-            System.out.println("Введенное число " + x + " чётное\n");
-        } else {
-            System.out.println("Введенное число " + x + " нечётное\n");
-        }
 
+        System.out.println("Введите номер карты 1: ");
+        long number1 = sc1.nextLong();
+        CreditCard card1 = new CreditCard(number1, 0);
 
-        /*
-        Задача 2:
-Для введенного числа t (температура на улице) вывести: Если t>–5, то вывести «Warm».
-Если –5>= t > –20, то вывести «Normal». Если –20>= t, то вывести «Cold».
-         */
-        System.out.println("Задание 2");
-        Scanner sc2 = new Scanner(System.in);
-        System.out.println("Введите вашу температуру: ");
-        int t = sc2.nextInt();
-        if (t > -5) {
-            System.out.println("Warm\n");
-        } else if (t > -20) {
-            System.out.println("Normal\n");
-        } else {
-            System.out.println("Cold\n");
-        }
+        System.out.println("Введите номер карты 2: ");
+        long number2 = sc1.nextLong();
+        CreditCard card2 = new CreditCard(number2, 0);
 
+        System.out.println("Введите номер карты 3: ");
+        long number3 = sc1.nextLong();
+        CreditCard card3 = new CreditCard(number3, 0);
+        boolean infinity = true;
 
-        /*
-        Задача 3:
-Составьте программу, выводящую на экран квадраты чисел от 10 до 20 включительно.
-         */
-        System.out.println("Задание 3");
+        while (infinity) {
+            System.out.println("\nВыберите действие: ");
+            System.out.println("1. Информация о карточках.");
+            System.out.println("2. Начисление средств на карту.");
+            System.out.println("3. Снятие средств.");
+            System.out.println("4. Выход.");
+            int choice = sc1.nextInt();
 
-        for(int i = 10; i <= 20; ++i) {
-            System.out.println(i * i);
-        }
-
-
-        /*
-        Задача 4:
-Необходимо, чтоб программа выводила на экран вот такую последовательность:
-7 14 21 28 35 42 49 56 63 70 77 84 91 98. В решении используйте цикл while.
-         */
-        System.out.println("\n");
-        System.out.println("Задание 4");
-        int j = 7;
-        int n = 1;
-
-        while(j * n < 99){
-            System.out.print(j * n + " ");
-            n++;
-        }
-
-
-        /*
-        Задача *:
-Напишите программу, где пользователь вводит любое целое положительное число. А
-программа суммирует все числа от 1 до введенного пользователем числа. Для ввода
-числа воспользуйтесь классом Scanner. Сделать проверку, чтобы пользователь не мог
-ввести некорректные данные.
-         */
-        System.out.println("\n");
-        Scanner sc3 = new Scanner(System.in);
-        System.out.println("Введите целое положительное число: ");
-        double k = sc3.nextDouble();
-        int l = 0;
-        if (!(k <= 0) && k % 1 == 0) {
-            for(int z = 1; z <= k; ++z) {
-                l += z;
-                if (z == k) {
-                    System.out.println(z + " = " + l);
+            switch (choice) {
+                case 1: {
+                    card1.displayInfo();
+                    card2.displayInfo();
+                    card3.displayInfo();
                     break;
                 }
-
-                System.out.print(z + " + ");
+                case 2: {
+                    System.out.println("Выберите карту, на которую требуется произвести зачисление средств(1-3).");
+                    int n = sc1.nextInt();
+                    System.out.println("Введите сумму зачисления: ");
+                    double amount = sc1.nextDouble();
+                    switch (n) {
+                        case 1: {
+                            card1.addMoney(amount);
+                            break;
+                        }
+                        case 2: {
+                            card2.addMoney(amount);
+                            break;
+                        }
+                        case 3: {
+                            card3.addMoney(amount);
+                            break;
+                        }
+                    }
+                    break;
+                }
+                case 3: {
+                    System.out.println("Выберите карту, с которой требуется произвести списание средств(1-3).");
+                    int n = sc1.nextInt();
+                    System.out.println("Введите сумму списания: ");
+                    double amount = sc1.nextDouble();
+                    switch (n) {
+                        case 1: {
+                            card1.withdraw(amount);
+                            break;
+                        }
+                        case 2: {
+                            card2.withdraw(amount);
+                            break;
+                        }
+                        case 3: {
+                            card3.withdraw(amount);
+                            break;
+                        }
+                    }
+                    break;
+                }
+                case 4:{
+                    infinity = false;
+                    break;
+                }
             }
-        } else {
-            System.out.println("Данные введены некорректно! Введите ЦЕЛОЕ и ПОЛОЖИТЕЛЬНОЕ число");
         }
-
     }
 }
+

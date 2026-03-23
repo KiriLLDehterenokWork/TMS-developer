@@ -1,5 +1,3 @@
-package HW6;
-
 public class CreditCard {
     private long accountNumber;
     private double currentAmount = 0;
