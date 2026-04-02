@@ -21,7 +21,7 @@ import java.lang.reflect.Constructor;
 способа.
  */
 
-public class Main {
+public class MainHW9 {
     public static void main(String[] args){
         //Получаем приватный конструктор Dog
         try{
