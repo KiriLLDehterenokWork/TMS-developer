@@ -1,9 +1,18 @@
 package StarTask;
-import java.lang.reflect.Field; // Импортируем инструмент для работы с полями
 import java.util.Scanner;
 
 /**
  * Дехтерёнок Кирилл
+ */
+
+/*
+Задача *:
+Дана строка произвольной длины с произвольными словами. Написать программу для
+проверки является ли любое выбранное слово в строке палиндромом.
+Например, есть строка, вводится число 3, значит необходимо проверить является ли 3-е
+слово в этой строке палиндромом.
+Предусмотреть предупреждающие сообщения на случаи ошибочных ситуаций: например,
+в строке 5 слов, а на вход программе передали число 500.
  */
 
 
@@ -11,11 +20,12 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        String str = "мама Радар кот.";
+        String str = "мама Радар кот";
+        System.out.println("Наша строка: " + str);
 
         String[] words = str.trim().split("\\s+");
         int wordsLength = words.length;
-        System.out.println("В строке " + wordsLength + " слов.");
+        System.out.println("В строке " + wordsLength + " слов(а).");
 
         System.out.println("Введите номер слова для проверки на полиндром: ");
         int wordNumber;
