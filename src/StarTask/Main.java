@@ -1,37 +1,53 @@
 package StarTask;
 import java.lang.reflect.Field; // Импортируем инструмент для работы с полями
+import java.util.Scanner;
 
 /**
  * Дехтерёнок Кирилл
  */
 
-/*
-Задача *:
-Создать класс Apple и добавить в него поле color с модификатором доступа private и
-инициализировать его. В методе main другого класса создать объект Apple, и не
-используя сеттеры изменить значение поля color
- */
 
 public class Main {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String str = "мама Радар кот.";
+
+        String[] words = str.trim().split("\\s+");
+        int wordsLength = words.length;
+        System.out.println("В строке " + wordsLength + " слов.");
+
+        System.out.println("Введите номер слова для проверки на полиндром: ");
+        int wordNumber;
         try {
-            Apple myApple = new Apple();
-            System.out.println("До изменений: " + myApple);
+            wordNumber = Integer.parseInt(sc.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Ошибка: Необходимо ввести целое число.");
+            sc.close();
+            return;
+        }
 
-            // Получаем доступ к полю "color" класса Apple
-            // getDeclaredField позволяет найти поле с private
-            Field field = Apple.class.getDeclaredField("color");
+        if (wordNumber < 1) {
+            System.out.println("Ошибка: Номер слова должен быть положительным числом.");
+            return;
+        }
 
-            // делаем приватное поле доступным
-            field.setAccessible(true);
+        if (wordNumber > wordsLength) {
+            System.out.println("Ошибка: В строке только " + wordsLength + " слов, а вы запросили слово номер " + wordNumber + ".");
+            return;
+        }
 
-            // Меняем значение поля у конкретного объекта myApple
-            field.set(myApple, "Green");
+        String selectedWord = words[wordNumber - 1];
+        System.out.println("Проверяем слово: " + selectedWord);
 
-            System.out.println("После изменений: " + myApple);
+        String lowerWord = selectedWord.toLowerCase();
+        String reversed = new StringBuilder(lowerWord).reverse().toString();
+        System.out.println("Перевернутый вариант выбранного слова: " + reversed);
 
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
+        if (lowerWord.equals(reversed)) {
+            System.out.println("\nРезультат: Слово " + selectedWord + " является палиндромом.");
+        } else {
+            System.out.println("\nРезультат: Слово " + selectedWord + " НЕ является палиндромом.");
         }
     }
 }
