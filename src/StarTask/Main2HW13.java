@@ -1,5 +1,14 @@
 package StarTask;
 
+/**
+ * Дехтерёнок Кирилл
+ */
+
+/*
+Задача *:
+Написать try/catch/finally, в котором finally вызван не будет.
+ */
+
 public class Main2HW13 {
     public static void main(String[] args){
         System.out.println("Начало программы");
