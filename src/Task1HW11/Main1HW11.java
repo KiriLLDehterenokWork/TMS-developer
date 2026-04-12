@@ -1,9 +1,9 @@
-package Task1;
+package Task1HW11;
 
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class Main {
+public class Main1HW11 {
     public static void main(String[]args){
         String str1 = "1.Теоретические вопросы по занятию для самопроверки:";
         String str2 = "Cat";
