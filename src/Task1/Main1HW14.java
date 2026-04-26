@@ -6,6 +6,12 @@ import java.io.*;
  * Дехтерёнок Кирилл
  */
 
+/*
+Задача 1:
+В задании приложен файл Ромео и Джульетта на английском, вычитать его в приложении.
+Проанализировать и записать в другой файл самое длинное слово.
+ */
+
 public class Main1HW14 {
     public static void main(String[] args) {
        String inputFile = "GivenText.txt";
