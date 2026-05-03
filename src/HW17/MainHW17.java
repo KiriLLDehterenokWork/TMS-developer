@@ -14,7 +14,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-public class Main1HW17 {
+public class MainHW17 {
     public static void main(String[] args) {
 
         /*
