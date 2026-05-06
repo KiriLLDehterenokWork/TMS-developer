@@ -1,5 +1,18 @@
 package Task1HW18;
 
+/**
+ * Дехтерёнок Кирилл
+ */
+
+/*
+Задача 1:
+Создать коллекцию класса ArrayList наполнить ее элементами типа Integer. С помощью
+Stream'ов:
+- Удалить дубликаты
+- Оставить только четные элементы
+- Вывести сумму оставшихся элементов в стриме
+ */
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
